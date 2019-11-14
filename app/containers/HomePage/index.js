@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <h1>
       <FormattedMessage {...messages.header} />
-      ok 12345
+      phuoc123
       <Login />
     </h1>
   );
