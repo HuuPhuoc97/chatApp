@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <h1>
       <FormattedMessage {...messages.header} />
-      ok
+      ok 123
     </h1>
   );
 }
