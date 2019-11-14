@@ -8,15 +8,11 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import Login from './../../components/Login' ;
+import Login from '../../components/Login';
 export default function HomePage() {
   return (
     <h1>
       <FormattedMessage {...messages.header} />
-
-       thanh thanh 
-====
-      phuoc123
 
       <Login />
     </h1>
