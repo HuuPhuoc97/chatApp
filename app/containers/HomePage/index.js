@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <h1>
       <FormattedMessage {...messages.header} />
-      ok 12345
+       thanh thanh 
       <Login />
     </h1>
   );
