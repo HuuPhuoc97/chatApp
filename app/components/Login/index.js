@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import './index.css';
+import { Redirect } from 'react-router';
 class Login extends Component {
   state = {
     isLoggedIn: false,
@@ -11,7 +12,7 @@ class Login extends Component {
   };
 
   responseFacebook = response => {
-    // console.log(response);
+    console.log(response);
 
     this.setState({
       isLoggedIn: true,
@@ -23,7 +24,16 @@ class Login extends Component {
   };
 
   componentClicked = () => console.log('clicked');
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return true;
+  // }
+  // componentWillUpdate = () =>{
+  //   if(this.state.isLoggedIn ){
+  //     console.log('okok');
 
+  //     // <Redirect to="/listfriend" />
+  //   }
+  // };
   render() {
     let fbContent;
 
@@ -55,7 +65,15 @@ class Login extends Component {
       );
     }
 
-    return <div className="login">{fbContent}</div>;
+    return (
+      <div className="login">
+        {fbContent}
+
+        {/* {this.state.isLoggedIn ? <Redirect to="/listfriend" />  */}
+
+        {/* : <h>loi login</h>}  */}
+      </div>
+    );
   }
 }
 
