@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from './actions';
+import { Link } from 'react-router-dom';
 function Login(props) {
   useEffect(() => {
     window.fbAsyncInit = function() {
@@ -81,7 +82,7 @@ function Login(props) {
     // ktra đăng nhập
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
-      console.log('ok123123123', response);
+      console.log('ktra login', response);
     });
   };
 
@@ -122,7 +123,7 @@ function Login(props) {
     //   data: data1,
     // });
   };
-  console.log('render', props.data);
+  console.log('data login', props.data);
 
   return (
     <div>
@@ -140,10 +141,14 @@ function Login(props) {
       </button>
 
       <button type="button" className="btn btn-success" onClick={testAPI}>
-        ListPage
+        luu api
       </button>
+      <br/>
+      <Link to="/listfriend" >friends</Link>
+      <br/>
+      <Link to="/listfanpage" >fan page</Link>
+      {/* {props.data.listFriend !== null ? <Redirect to="/listfriend" /> : ''} */}
 
-      {props.data !== null ? <Redirect to="/listfriend" /> : ''}
     </div>
   );
 }

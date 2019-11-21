@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 // import * as actions from './actions';
 import './index.css';
 // import logo from './../../images/123.jpg';
-function ListFriend(props) {
+function ListFanPage(props) {
   const [keyword, setKeyword] = useState('');
-  var list = props.data.listFriend;
-  console.log('list ' ,list);
+  console.log(props.data);
+  var list = props.data.listPage;
+  console.log(list);
   if (keyword !== "") {
     console.log(keyword);
     
@@ -15,19 +16,15 @@ function ListFriend(props) {
     });
     console.log(list);
   }
-  const onChangeSearch = event => {
-    var target = event.target;
-    setKeyword(target.value);
-  };
-  var elementPage = list.map((page, index) => {
-    console.log(page);
+  var elementPage = list.map((item, index) => {
+    console.log(item);
     return (
       <div className="col-md-4 p-2">
         <div className="card ">
           <div className="card-body">
             <div className="d-flex ">
-              <img src={page.picture.data.url} className="logo" alt="logo" />
-              <h5>{page.name}</h5>
+              <img src={item.picture.data.url} className="logo" alt="logo" />
+              <h5>{item.name}</h5>
             </div>
           </div>
           <div className="card-footer">
@@ -39,6 +36,18 @@ function ListFriend(props) {
       </div>
     );
   });
+  const onChangeSearch = event => {
+    var target = event.target;
+    setKeyword(target.value);
+  };
+  // console.log(keyword);
+  if (keyword !== "") {
+    console.log(keyword);
+    
+    list = list.filter(item => {
+      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+    });
+  }
   return (
     <div id="page">
       <div className="col-xl-12  ml-auto py-2 header-page ">
@@ -84,4 +93,4 @@ const mapDispatchToProps = (dispatch, props) => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ListFriend);
+)(ListFanPage);

@@ -14,7 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Login from '../Login/index';
 import ListFriend from '../ListFriend/index';
-
+import ListFanPage from '../ListFanPage/index';
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
@@ -23,6 +23,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/listfriend" component={ListFriend} />
+        <Route path="/listfanpage" component={ListFanPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
