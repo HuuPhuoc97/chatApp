@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 // import * as actions from './actions';
 import './index.css';
@@ -6,17 +6,17 @@ import './index.css';
 function ListFanPage(props) {
   const [keyword, setKeyword] = useState('');
   console.log(props.data);
-  var list = props.data.listPage;
+  let list = props.data.listPage;
   console.log(list);
-  if (keyword !== "") {
+  if (keyword !== '') {
     console.log(keyword);
-    
-    list = list.filter(item => {
-      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
-    });
+
+    list = list.filter(
+      item => item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1,
+    );
     console.log(list);
   }
-  var elementPage = list.map((item, index) => {
+  const elementPage = list.map((item, index) => {
     console.log(item);
     return (
       <div className="col-md-4 p-2">
@@ -37,16 +37,16 @@ function ListFanPage(props) {
     );
   });
   const onChangeSearch = event => {
-    var target = event.target;
+    const { target } = event;
     setKeyword(target.value);
   };
   // console.log(keyword);
-  if (keyword !== "") {
+  if (keyword !== '') {
     console.log(keyword);
-    
-    list = list.filter(item => {
-      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
-    });
+
+    list = list.filter(
+      item => item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1,
+    );
   }
   return (
     <div id="page">
@@ -67,11 +67,7 @@ function ListFanPage(props) {
             </button>
           </div>
           <div className="col-md-3 button-logout ">
-            <img
-              src={props.data.image}
-              className="logo"
-              alt="logo"
-            />
+            <img src={props.data.image} className="logo" alt="logo" />
             <span className="user-name">{props.data.name}</span>
             <button type="button" className="btn btn-primary">
               Logout

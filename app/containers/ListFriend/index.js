@@ -1,25 +1,25 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 // import * as actions from './actions';
 import './index.css';
 // import logo from './../../images/123.jpg';
 function ListFriend(props) {
   const [keyword, setKeyword] = useState('');
-  var list = props.data.listFriend;
-  console.log('list ' ,list);
-  if (keyword !== "") {
+  let list = props.data.listFriend;
+  console.log('list ', list);
+  if (keyword !== '') {
     console.log(keyword);
-    
-    list = list.filter(item => {
-      return item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
-    });
+
+    list = list.filter(
+      item => item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1,
+    );
     console.log(list);
   }
   const onChangeSearch = event => {
-    var target = event.target;
+    const { target } = event;
     setKeyword(target.value);
   };
-  var elementPage = list.map((page, index) => {
+  const elementPage = list.map((page, index) => {
     console.log(page);
     return (
       <div className="col-md-4 p-2">
@@ -58,11 +58,7 @@ function ListFriend(props) {
             </button>
           </div>
           <div className="col-md-3 button-logout ">
-            <img
-              src={props.data.image}
-              className="logo"
-              alt="logo"
-            />
+            <img src={props.data.image} className="logo" alt="logo" />
             <span className="user-name">{props.data.name}</span>
             <button type="button" className="btn btn-primary">
               Logout

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-import * as actions from './actions';
 import { Link } from 'react-router-dom';
+import * as actions from './actions';
 function Login(props) {
   useEffect(() => {
     window.fbAsyncInit = function() {
@@ -143,12 +143,11 @@ function Login(props) {
       <button type="button" className="btn btn-success" onClick={testAPI}>
         luu api
       </button>
-      <br/>
-      <Link to="/listfriend" >friends</Link>
-      <br/>
-      <Link to="/listfanpage" >fan page</Link>
+      <br />
+      <Link to="/listfriend">friends</Link>
+      <br />
+      <Link to="/listfanpage">fan page</Link>
       {/* {props.data.listFriend !== null ? <Redirect to="/listfriend" /> : ''} */}
-
     </div>
   );
 }
