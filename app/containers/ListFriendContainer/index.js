@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ItemFanPage from '../../components/ItemFanPage';
-import ListFriend from '../../components/ListFriends';
+import ListFriend from '../../components/ListFriend';
 // import * as actions from './actions';
-import './index.css';
+// import './index.css';
 
 function ListFriendContainer(props) {
   const [keyword, setKeyword] = useState('');
@@ -21,20 +21,31 @@ function ListFriendContainer(props) {
     const { target } = event;
     setKeyword(target.value);
   };
-  const elementPage = list.map((item, index) => {
-    return (
-      <ItemFanPage
-        key={index}
-        urlImage={item.picture.data.url}
-        userName={item.name}
-      />
-    );
-  });
+  const elementPage = list.map((item, index) => (
+    <ItemFanPage
+      key={index}
+      urlImage={item.picture.data.url}
+      userName={item.name}
+    />
+  ));
+  const showFriend = () => {
+    let result = null;
+    if (list.length > 0) {
+      result = list.map((item, index) => (
+        <ItemFanPage
+          key={index}
+          urlImage={item.picture.data.url}
+          userName={item.name}
+        />
+      ));
+    }
+    return result;
+  };
 
   useEffect(() => {
     (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
+      let js;
+      const fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {
         return;
       }
@@ -46,7 +57,7 @@ function ListFriendContainer(props) {
 
     window.fbAsyncInit = () => {
       FB.init({
-        appId: '413811969495076', //Change with your Facebook app id
+        appId: '413811969495076', // Change with your Facebook app id
         autoLogAppEvents: true,
         cookie: true,
         xfbml: true,
@@ -74,40 +85,14 @@ function ListFriendContainer(props) {
     });
   };
   return (
-    <div id="page">
-      <div className="col-xl-12  ml-auto py-2 header-page ">
-        <div className="row ">
-          <div className="col-md-4">
-            <h4 className=" mb-0 mt-2"> Logo </h4>
-          </div>
-          <div className="col-md-5 input-group">
-            <input
-              type="text"
-              className="form-control search-input"
-              placeholder="Tìm page..."
-              onChange={onChangeSearch}
-            />
-            <button type="button" className="btn btn-light search-button">
-              <i className="fa fa-search text-danger" />
-            </button>
-          </div>
-          <div className="col-md-3 button-logout ">
-            <img src={props.data.image} className="logo" alt="logo" />
-            <span className="user-name">{props.data.name}</span>
-            <button type="button" className="btn btn-primary" onClick={logout}>
-              Logout
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="body-page">
-        <h5 className="p-2">CHỌN PAGE BẮT ĐẦU : </h5>
-        <div className="row m-3">{elementPage}</div>
-      </div>
-
-    </div>
-    // <ListFriend
-    // />
+    <ListFriend
+      image={props.data.image}
+      name={props.data.name}
+      logout={logout}
+      onChangeSearch={onChangeSearch}
+    >
+      {showFriend()}
+    </ListFriend>
   );
 }
 const mapStateToProps = (state, props) => ({

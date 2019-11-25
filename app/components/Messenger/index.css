@@ -1,0 +1,39 @@
+.nav-link {
+    transition: all .4s;
+    border-bottom: 1px groove 	#F5F5F5 ;
+   
+}
+
+.nav-link:hover {
+    background-color : 	#AFEEEE ;
+    border-radius: 5px;
+
+}
+.abc {
+   height: 500px ;
+   overflow-y: scroll;
+   padding-top: 20px;
+    border: 1px solid #ccc;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.info{
+    text-align: center;
+    padding:  0px ; 
+    padding-right : 20px ;
+}
+.logo-info {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.messenger-right {
+padding-left: 500px ;
+}

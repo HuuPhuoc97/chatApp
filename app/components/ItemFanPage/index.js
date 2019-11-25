@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './index.css';
 function ItemFanPage(props) {
   return (
     <div className="col-md-4 p-2">
@@ -10,9 +12,13 @@ function ItemFanPage(props) {
           </div>
         </div>
         <div className="card-footer">
-          <button type="button" className="btn btn-info  float-right">
+          <Link
+            type="button"
+            className="btn btn-info  float-right"
+            to="/messenger"
+          >
             Truy cập
-          </button>
+          </Link>
         </div>
       </div>
     </div>
