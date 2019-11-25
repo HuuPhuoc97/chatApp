@@ -1,0 +1,31 @@
+#page {
+    padding : 20px;
+}
+.header-page {
+    border-bottom: 1px solid	#D3D3D3;
+}
+.input-group {
+  width : 65%;
+  float : right ;
+}
+.search-input {
+    background: white;
+    border: none;
+    border-radius: 10px;
+}
+.search-button {
+    background: white;
+    height : 40px ;
+}
+.button-logout {
+    text-align : right ;
+}
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.user-name{
+    padding-right: 10px;
+}
