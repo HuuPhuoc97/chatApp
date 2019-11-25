@@ -13,7 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Login from '../Login/index';
-import ListFriend from '../ListFriend/index';
+import ListFriendContainer from '../ListFriendContainer/index';
 import ListFanPage from '../ListFanPage/index';
 import GlobalStyle from '../../global-styles';
 
@@ -22,7 +22,7 @@ export default function App() {
     <div>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route path="/listfriend" component={ListFriend} />
+        <Route path="/listfriend" component={ListFriendContainer} />
         <Route path="/listfanpage" component={ListFanPage} />
         <Route component={NotFoundPage} />
       </Switch>

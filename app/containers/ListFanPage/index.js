@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 // import * as actions from './actions';
 import './index.css';
+import ItemFanPage from './../../components/ItemFanPage'
 // import logo from './../../images/123.jpg';
 function ListFanPage(props) {
   const [keyword, setKeyword] = useState('');
@@ -17,23 +18,8 @@ function ListFanPage(props) {
     console.log(list);
   }
   const elementPage = list.map((item, index) => {
-    console.log(item);
     return (
-      <div className="col-md-4 p-2">
-        <div className="card ">
-          <div className="card-body">
-            <div className="d-flex ">
-              <img src={item.picture.data.url} className="logo" alt="logo" />
-              <h5>{item.name}</h5>
-            </div>
-          </div>
-          <div className="card-footer">
-            <button type="button" className="btn btn-info  float-right">
-              Truy cập
-            </button>
-          </div>
-        </div>
-      </div>
+      <ItemFanPage key={index} urlImage={item.picture.data.url} userName={item.name}/>
     );
   });
   const onChangeSearch = event => {
